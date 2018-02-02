@@ -1,0 +1,74 @@
+<h1>Log in/Sign up page</h1>
+
+<p id='message'></p>
+
+<h2>Sign up here</h2>
+	<%= form_for @user, url: users_path, html: { id: 'sign_up_form' }  do |t| %>
+		
+		<% if @user.errors.any? %>
+			<div>
+				<h5>
+					<%= pluralize(@user.errors.count, "There has been a problem with your login details") %>
+					This is what may have caused it:
+				</h5>
+
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+				
+			<p>
+				<%= t.label :'Name' %>
+				<%= t.text_field :name %>
+			</p>
+
+			<p>
+				<%= t.label :'Email' %>
+				<%= t.text_field :email %>
+			</p>
+
+			<p>
+				<%= t.label :"Password" %>
+				<%= t.password_field :password %>
+			</p>
+				
+			<%= t.submit 'Sign up' %>
+	<% end %>
+
+<h2>Sign in here!</h2>
+	<%= form_for @user, url: sign_in_path do |f| %>
+		
+		<% if @user.errors.any? %>
+			<div>
+				<h5>
+					<%= pluralize(@user.errors.count, "There has been a problem with your login details") %>
+					This is what may have caused it:
+				</h5>
+
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<p>
+			<%= f.label :'Email' %>
+			<%= f.text_field :email %>
+		</p>
+		
+		<p>
+			<%= f.label :'Password' %>
+			<%= f.password_field :password %>	
+		</p>
+
+		<p>
+			<%= f.submit 'Log in' %>		
+		</p>
+	<% end %>
+
+<%= link_to 'Back', root_path %>

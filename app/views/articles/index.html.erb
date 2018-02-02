@@ -1,0 +1,32 @@
+<h1>Index for listing all articles</h1>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Author</th>
+	</tr>
+
+	<% @article.each do |article| %>
+		<tr>
+			<td><%= article.title %></td>	
+			<td><%= article.description %></td>	
+			<td><%= article.author %></td>	
+			<td><%= link_to 'Show', article_path(article) %></td>
+		</tr>
+	<% end %>	
+</table>
+
+<br>
+
+<div>	
+	<%= form_tag articles_path, method: 'get' %>
+	<%= label_tag 'Search' %>
+	<%= search_field_tag :search_terms %>
+	<%= submit_tag 'Search' %>
+</div>
+
+
+<br>
+
+<%= link_to 'Home', root_path %>

@@ -1,0 +1,24 @@
+<h1>This page is for creating new articles</h1>
+
+<%= form_for :article, url: articles_path do |t| %>
+	<p>
+		<%= t.label :'Title' %>
+		<%= t.text_field :title %>
+	</p>
+
+	<p>
+		<%= t.label :'Description' %>
+		<%= t.text_area :description %>
+	</p>
+
+	<p>
+		<%= t.label :'Author' %>
+		<%= t.text_field :author %>
+	</p>
+
+	<p>
+		<%= t.submit 'Submit' %>
+	</p>
+<% end %>
+
+<%= link_to 'Home', root_path %>

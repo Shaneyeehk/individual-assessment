@@ -1,0 +1,23 @@
+<h1>This is the homepage</h1>
+<h2>Stackoverflow clone</h3>
+
+<p>
+	<h4>A joke to start off your day</h4>
+	<%= @joke %> 
+</p>
+
+<% if logged_in %>
+	<h3>Welcome <%= current_user.name %>!</h2> 
+	<%= link_to 'View my articles', user_articles_path %> <br>
+	<%= link_to 'View all articles', articles_path %> <br>
+	<%= link_to 'Create new article', new_article_path %> <br>
+	<%= link_to 'Sign out', sign_out_path %> <br>
+<% else %>
+	<%= link_to 'Login/Sign up', new_user_path %> <br>
+	<%= link_to 'Sign in with Facebook', "/auth/facebook" %>  <br>
+	<%= link_to 'Sign in with Google', '/auth/google_oauth2' %>
+<% end %>
+
+
+
+
