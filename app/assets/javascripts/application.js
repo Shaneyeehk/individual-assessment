@@ -22,7 +22,7 @@
 //     });
 // });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 	$("#sign_up_form").submit(function(event){
 		event.preventDefault()
 		$.ajax({
